@@ -38,8 +38,9 @@ const InvoiceGenerator = () => {
     return total;
   };
   const calculateTax = () =>{
-      const taxRate = calculateTotal() + tax;
-      return taxRate;
+      const taxValue = calculateTotal() * (tax / 100);
+      const totalPrice = calculateTotal() + taxValue;
+      return totalPrice;
   };
 
 
@@ -148,7 +149,7 @@ const InvoiceGenerator = () => {
           <tbody>
             {items.map((item, index) => (
               <tr key={index}>
-                <td>{item.description}</td>
+                <td className='te'>{item.description}</td>
                 <td>{item.quantity}</td>
                 <td>{item.price} AED</td>
                 <td>{item.quantity * item.price} AED</td>
